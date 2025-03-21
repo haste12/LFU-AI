@@ -8,7 +8,7 @@ from datetime import datetime, timedelta
 from collections import defaultdict
 import firebase_admin
 from firebase_admin import credentials, firestore
-from flask import Flask, render_template
+
 
 # Load environment variables from .env
 load_dotenv()
@@ -245,15 +245,4 @@ def get_remaining_messages(user_id):
 if __name__ == "__main__":
     app.run(debug=True, port=8000)
 
-app = Flask(__name__)
 
-@app.route('/')
-def login():
-    return render_template('index.html')  # Login page
-
-@app.route('/ai')
-def ai_page():
-    return render_template('AI.html')  # AI chat page
-
-if __name__ == '__main__':
-    app.run(debug=True)
